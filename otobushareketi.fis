@@ -1,0 +1,58 @@
+[System]
+Name='otobushareketi'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=16
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='kisi'
+Range=[0 50]
+NumMFs=4
+MF1='az':'trimf',[0 2 5]
+MF2='orta':'trimf',[3 5 8]
+MF3='cok':'trimf',[7 10 12]
+MF4='asiri':'trapmf',[10 15 50 50]
+
+[Input2]
+Name='vakit'
+Range=[5 24]
+NumMFs=4
+MF1='sabah':'trimf',[5 8 11]
+MF2='ogle':'trimf',[10 13 16]
+MF3='aksam':'trimf',[15 18 21]
+MF4='gece':'trimf',[20 22 24]
+
+[Output1]
+Name='hareket'
+Range=[0 45]
+NumMFs=5
+MF1='coksık':'trimf',[5 10 15]
+MF2='sık':'trimf',[10 17 25]
+MF3='seyrek':'trimf',[20 27 35]
+MF4='cokseyrek':'trapmf',[30 37 46.5 58.5]
+MF5='asirisık':'trimf',[0 4 8]
+
+[Rules]
+1 1, 3 (1) : 1
+1 2, 4 (1) : 1
+1 3, 3 (1) : 1
+1 4, 4 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 2 (1) : 1
+2 4, 3 (1) : 1
+3 1, 1 (1) : 1
+3 2, 2 (1) : 1
+3 3, 1 (1) : 1
+3 4, 2 (1) : 1
+4 1, 5 (1) : 1
+4 2, 1 (1) : 1
+4 3, 5 (1) : 1
+4 4, 1 (1) : 1
